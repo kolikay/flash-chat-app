@@ -1,7 +1,12 @@
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'registration_screen.dart';
 import 'login_screen.dart';
+=======
+import 'login_screen.dart';
+import 'registration_screen.dart';
+>>>>>>> 06b0efd473c1a43c0bcf8272b0908afdd36840f4
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';
@@ -32,7 +37,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
+<<<<<<< HEAD
                     color: Colors.black,
+=======
+                    color: Colors.black54,
+>>>>>>> 06b0efd473c1a43c0bcf8272b0908afdd36840f4
                   ),
                 ),
               ],
@@ -66,12 +75,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
+<<<<<<< HEAD
                    Navigator.pushNamed(context, RegistrationScreen.id);
+=======
+                    Navigator.pushNamed(context, RegistrationScreen.id);
+>>>>>>> 06b0efd473c1a43c0bcf8272b0908afdd36840f4
                   },
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(
-                    'Register',
+                    'click to resister',
                   ),
                 ),
               ),
