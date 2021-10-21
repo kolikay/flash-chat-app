@@ -3,12 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegistrationScreen extends StatefulWidget {
-<<<<<<< HEAD
-  static String id = 'registration_screen';
-=======
 static String id = 'registration_screen';
 
->>>>>>> 06b0efd473c1a43c0bcf8272b0908afdd36840f4
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
 }

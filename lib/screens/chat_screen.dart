@@ -3,12 +3,7 @@ import 'package:flash_chat/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ChatScreen extends StatefulWidget {
-<<<<<<< HEAD
   static String id = 'chat_screen';
-=======
-static String id = 'chat_screen';
-
->>>>>>> 06b0efd473c1a43c0bcf8272b0908afdd36840f4
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
