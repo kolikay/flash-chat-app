@@ -40,14 +40,12 @@ class _ChatScreenState extends State<ChatScreen> {
   //   }
   // }
   void messagesSteams() async {
-    await for (var snapshot in _firestore.collection('messages').snapshots()){
-       for ( var message in snapshot.docs){
-         print(message.data());
-       }
+    await for (var snapshot in _firestore.collection('messages').snapshots()) {
+      for (var message in snapshot.docs) {
+        print(message.data());
+      }
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +70,33 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            StreamBuilder(
+              stream: _firestore.collection('messages').snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.lightBlueAccent ,
+                    ),
+                  );
+                }
+                final messages = snapshot.data.docs;
+                List<Text> messageWidgets = [];
+                for (var message in messages) {
+                  final messageText = message.data()['text'];
+                  final messageSender = message.data()['email'];
+                  final messageWidget =
+                      Text('$messageText from $messageSender');
+                  messageWidgets.add(messageWidget);
+                }
+                return Column(
+                  children: messageWidgets,
+                );
+                // } else {
+                //   return Text('No Data Found');
+                // }
+              },
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -108,3 +133,18 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
+      // if (snapshot.hasData) {
+      //             final messages = snapshot.data.documents;
+      //             List<Text> messageWidgets = [];
+      //             for (var message in messages) {
+      //               final messageText = message['text'];
+      //               final messageSender = message['sender'];
+
+      //               final messageWidget =
+      //                   Text('$messageText from $messageSender');
+      //               messageWidgets.add(messageWidget);
+      //             }
+      //             return Column(
+      //               children: messageWidgets,
+      //             );
+      //           }
